@@ -8,9 +8,13 @@ import { getRandomItem } from "./utils/random";
 import Quote from "./components/Quote";
 
 export default function App() {
-  function handleMotivationalRefresh() {}
-  function handleReligiousRefresh() {}
+  function handleMotivationalRefresh() {
+    setMotivational(getRandomItem(motivationalQuotes));
+  }
 
+  function handleReligiousRefresh() {
+    setReligious(getRandomItem(religiousQuotes));
+  }
   return (
     <View style={styles.container}>
       <Header />
@@ -40,6 +44,14 @@ const [motivational, setMotivational] = useState(
   getRandomItem(motivationalQuotes)
 );
 const [religious, setReligious] = useState(getRandomItem(religiousQuotes));
+
+function handleMotivationalRefresh() {
+  setMotivational(getRandomItem(motivationalQuotes));
+}
+
+function handleReligiousRefresh() {
+  setReligious(getRandomItem(religiousQuotes));
+}
 
 const styles = StyleSheet.create({
   container: {
